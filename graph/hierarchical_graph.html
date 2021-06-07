@@ -29,6 +29,16 @@
             <a href="./clustering_graph.html">Clustering graph</a>
             <a href="./hierarchical_graph_hits.html">Apply Hits Authority</a>
             <a href="./hierarchical_graph_pagerank.html">Apply Hits Authority</a>
+            <input type="button" value="Help" onclick="document.getElementById('help_dialog').show()">
+            <dialog id="help_dialog">
+                <h2>Usage</h2>
+                <div class="dialog_content">
+                    <p class="help_box"></p>
+                    <p>Node Highlight: Left-Click the node<br>
+                    Jump to Article: Right-Click the node</p>
+                </div>
+                <input type="button" value="Close"  onclick="document.getElementById('help_dialog').close()">
+            </dialog>
         </div>
         <div id="graph"></div>
     </body>
