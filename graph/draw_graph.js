@@ -164,11 +164,9 @@ $(function(){
         let all_elements = cy.elements();
         cy.fit(cy.nodes().orphans());
 
-
         // 強調表示する祖先、子孫の世代数の初期化
         let ancestor_generations = 1;
         let descendant_generations = 1;
-
 
         /* 検索機能の追加 */
         // 全ノード名の取得
@@ -217,19 +215,31 @@ $(function(){
                 reset_elements_style(cy);
             }
         });
+        // エッジをクリックしたとき，グラフを初期状態のスタイルにする
+        cy.edges().on("tap", function(event){
+            reset_elements_style(cy);
+        });
 
+        // ノードの上にカーソルが来たとき，ノード名を表示する
+        $(window).on("mousemove", function(window_event){ 
+            cy.nodes().on("mouseover", function(cy_event){
+                document.getElementById("name-plate").style.top = window_event.clientY + (10) + "px";
+                document.getElementById("name-plate").style.left = window_event.clientX + (10) +"px";
+                document.getElementById("name-plate").textContent = cy_event.target.data("name");
+            });
+            cy.nodes().on("mouseout", function(){
+                document.getElementById("name-plate").textContent = "";
+            })
+        });
 
         // ノードをクリックした場合、リンクに飛ぶ(htmlリンクの設定)
-        // faded状態ならば反応しない
         cy.nodes().on("cxttap", function(event){
-            let clicked_node = event.target;
             try {  // your browser may block popups
                 window.open(this.data("href"));
             } catch(e){  // fall back on url change
                 window.location.href = this.data("href");
             }
         });
-
 
         // クリックしたノードの親と子、自身を色変更
         cy.nodes().on("tap", function(e){
@@ -242,10 +252,20 @@ $(function(){
             $("#select_article").text("SELECT: " + clicked_node_name);
         });
 
+        // re-highlightボタンで再度ハイライトする
+        $("#re-highlight").click(function() {
+            if(cy.nodes(".selected").data()){
+                let selected_node = cy.nodes().filter(function(ele){
+                    return ele.data("name") == cy.nodes(".selected").data("name");
+                });
+                reset_elements_style(cy);
+                highlight_select_elements(cy, selected_node, ancestor_generations, descendant_generations);
+            }
+        });
 
-        // reloadボタンでリロードにする
+        // resetボタンでグラフを初期状態に戻す
         $(document).ready(function(){
-            $("#reload").click(function(){
+            $("#reset").click(function(){
                 location.reload();
             });
         });
