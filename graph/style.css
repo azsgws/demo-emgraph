@@ -34,6 +34,14 @@ button:active{
     width: 40px;
 }
 
+#help {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    height: 30px;
+    width: 70px;
+}
+
 dialog {
     padding: 10px;
     border: 1px solid #eee;
@@ -83,4 +91,12 @@ dialog input {
 
 .hidden_show {
     visibility: hidden;
+}
+
+#reset {
+    position: absolute;
+}
+
+.help-page {
+    height: 300px;
 }

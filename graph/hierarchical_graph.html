@@ -27,18 +27,28 @@
             <input type="number" name="descendant_generations" id="descendant_generations" value="1" min="0" max="100">
             <button type="button" value="re-highlight" id="re-highlight">re-highlight</button>
             <br>
-            <button type="button" value="reset" id="reset">reset</button>
             <a href="./clustering_graph.html">Clustering graph</a>
             <a href="./hierarchical_graph_hits.html">Apply Hits Authority</a>
             <a href="./hierarchical_graph_pagerank.html">Apply Hits Authority</a>
-            <input type="button" value="Help" onclick="document.getElementById('help_dialog').show()">
+            <input type="button" value="Help" id="help" onclick="document.getElementById('help_dialog').show()">
             <dialog id="help_dialog">
                 <h2>Usage</h2>
                 <div class="dialog_content">
-                    <img src="./static/emgraph/images/description-emgraph.png" alt="description-emgraph">
+                    <img src="./static/emgraph/images/description-emgraph.png" alt="description-emgraph" class="help-page">
+                    <img src="./static/emgraph/images/description-highlight-param.png" alt="description-highlight-param" class="help-page">
+                    <img src="./static/emgraph/images/description-highlight-coloring.png" alt="description-highligh-coloring" class="help-page">
+                    <ul>
+                        <li>
+                            Zoom In/Out: Wheel Scroll
+                        </li>
+                        <li>
+                            Move Graph: Left Drag
+                        </li>
+                    </ul>
+                    <input type="button" value="Close" onclick="document.getElementById('help_dialog').close()">
                 </div>
-                <input type="button" value="Close"  onclick="document.getElementById('help_dialog').close()">
             </dialog>
+            <button type="button" value="reset" id="reset">reset</button>
         </div>
         <div class="color_index hidden_show" id="highlight_coloring_index">
             <p><b>Highlight Coloring</b></p>
