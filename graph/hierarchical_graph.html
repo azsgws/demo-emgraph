@@ -28,22 +28,30 @@
             <button type="button" value="re-highlight" id="re-highlight">re-highlight</button>
             <br>
             <a href="./clustering_graph.html">Clustering graph</a>
-            <input type="button" value="Help" id="help" onclick="document.getElementById('help_dialog').show()">
-            <dialog id="help_dialog">
+            <input type="button" value="Help" id="help" onclick="document.getElementById('help_dialog_page1').show()">
+            <dialog id="help_dialog_page1" class="help-dialog">
                 <h2>Usage</h2>
                 <div class="dialog_content">
                     <img src="./static/emgraph/images/description-emgraph.png" alt="description-emgraph" class="help-page">
+                    <input type="button" value="Next" onclick="document.getElementById('help_dialog_page1').close(); document.getElementById('help_dialog_page2').show();">
+                    <input type="button" value="Close" onclick="document.getElementById('help_dialog_page1').close()">
+                </div>
+            </dialog>
+            <dialog id="help_dialog_page2" class="help-dialog">
+                <h2>Usage</h2>
+                <div class="dialog_content">
                     <img src="./static/emgraph/images/description-highlight-param.png" alt="description-highlight-param" class="help-page">
+                    <input type="button" value="Prev" onclick="document.getElementById('help_dialog_page2').close(); document.getElementById('help_dialog_page1').show();">
+                    <input type="button" value="Next" onclick="document.getElementById('help_dialog_page2').close(); document.getElementById('help_dialog_page3').show();">
+                    <input type="button" value="Close" onclick="document.getElementById('help_dialog_page2').close()">
+                </div>
+            </dialog>
+            <dialog id="help_dialog_page3" class="help-dialog">
+                <h2>Usage</h2>
+                <div class="dialog_content">
                     <img src="./static/emgraph/images/description-highlight-coloring.png" alt="description-highligh-coloring" class="help-page">
-                    <ul>
-                        <li>
-                            Zoom In/Out: Wheel Scroll
-                        </li>
-                        <li>
-                            Move Graph: Left Drag
-                        </li>
-                    </ul>
-                    <input type="button" value="Close" onclick="document.getElementById('help_dialog').close()">
+                    <input type="button" value="Prev" onclick="document.getElementById('help_dialog_page3').close(); document.getElementById('help_dialog_page2').show();">
+                    <input type="button" value="Close" onclick="document.getElementById('help_dialog_page3').close()">
                 </div>
             </dialog>
             <button type="button" value="reset" id="reset">reset</button>

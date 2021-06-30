@@ -98,5 +98,31 @@ dialog input {
 }
 
 .help-page {
-    height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 500px;
+    width: 850px;
+}
+
+.help-dialog {
+    height: 700px;
+    width: 950px;
+}
+
+.close-dialog {
+    position: static;
+    left: 10px;
+    bottom: 10px;
+}
+
+.next-dialog{
+    position: static;
+    right: 10px;
+    bottom: 100px;
+}
+
+.prev-dialog{
+    position: static;
+    left: 10px;
+    bottom: 100px;
 }
