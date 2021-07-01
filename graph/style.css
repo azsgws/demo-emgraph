@@ -105,24 +105,40 @@ dialog input {
 }
 
 .help-dialog {
-    height: 700px;
+    height: 600px;
     width: 950px;
 }
 
-.close-dialog {
-    position: static;
-    left: 10px;
-    bottom: 10px;
-}
-
-.next-dialog{
-    position: static;
+.help-dialog .close-dialog {
+    position: absolute;
     right: 10px;
-    bottom: 100px;
+    top: 10px;
+    height: 55px;
+    width: 50px;
+    font-size: 40px;
 }
 
-.prev-dialog{
-    position: static;
+.help-dialog .next-dialog{
+    position: absolute;
+    right: 10px;
+    bottom: 50px;
+    height: 30px;
+    width: 60px;
+    font-size: 20px;
+}
+
+.help-dialog .prev-dialog{
+    position: absolute;
     left: 10px;
-    bottom: 100px;
+    bottom: 50px;
+    height: 30px;
+    width: 60px;
+    font-size: 20px;
+}
+
+.help-dialog p.number-of-page{
+    position: absolute;
+    bottom: 30px;
+    right: 50%;
+    font-size: 20px;
 }
