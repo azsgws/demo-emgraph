@@ -283,6 +283,50 @@ $(function(){
             }
         });
 
+        /* オープン処理 */
+        $(document).on("click", "#help", function(){
+            let dialog = $(this).next();
+            let modal_window = document.getElementById("modal_window");
+            let leftPos = (($(window).width() - dialog.outerWidth(true)) / 2);
+            let topPos = (($(window).height() - dialog.outerHeight(true)) / 2);
+            dialog.css({"left": leftPos + "px"});
+            dialog.css({"top": topPos + "px"});
+            dialog.show();
+            modeal_window.css({"width": $(window).width()});
+            modeal_window.css({"height": $(window).height()});
+            modal_window.show();
+        });
+        /* ページ遷移処理(next) */
+        $(document).on("click", ".next_dialog", function(){
+            let current_dialog = $(this).parent();
+            let next_dialog = current_dialog.next()
+            current_dialog.hide();
+
+            let leftPos = (($(window).width() - next_dialog.outerWidth(true)) / 2);
+            let topPos = (($(window).height() - next_dialog.outerHeight(true)) / 2);
+            next_dialog.css({"left": leftPos + "px"});
+            next_dialog.css({"top": topPos + "px"});
+            next_dialog.show();
+        });
+        /* ページ遷移処理(prev) */
+        $(document).on("click", ".prev_dialog", function(){
+            let current_dialog = $(this).parent();
+            let prev_dialog = current_dialog.prev();
+            current_dialog.hide();
+
+            let leftPos = (($(window).width() - prev_dialog.outerWidth(true)) / 2);
+            let topPos = (($(window).height() - prev_dialog.outerHeight(true)) / 2);
+            prev_dialog.css({"left": leftPos + "px"});
+            prev_dialog.css({"top": topPos + "px"});
+            prev_dialog.show();
+        });
+        /* クローズ処理 */
+        $(document).on("click", ".close_dialog", function(){
+            let dialog = $(this).parent();
+            dialog.hide();
+            
+        });
+
         // resetボタンでグラフを初期状態に戻す
         $(document).ready(function(){
             $("#reset").click(function(){

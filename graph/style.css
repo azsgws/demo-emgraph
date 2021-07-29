@@ -42,37 +42,6 @@ button:active{
     width: 70px;
 }
 
-dialog {
-    padding: 10px;
-    border: 1px solid #eee;
-    border-radius: 0.6rem;
-    box-shadow: 1px 1px 2px #333;
-    position: relative;
-    z-index: 1000;
-}
-
-dialog::backdrop {
-    padding: 0;
-    background-color: rgba(0, 0, 0, 0.4);
-    cursor: pointer;
-}
-
-dialog h2 {
-    padding: 10px;
-    background-color: black;
-    margin: 0;
-    color: white;
-}
-
-dialog div {
-    color: #424242;
-    padding: 10px;
-}
- 
-dialog input {
-    position: inherit;
-}
-
 .color_labels .generation_param_row{
     width: 140px;
     font-size: 100%;
@@ -97,19 +66,47 @@ dialog input {
     position: absolute;
 }
 
-.help-page {
+.help_page {
     margin-left: auto;
     margin-right: auto;
     height: 500px;
     width: 850px;
 }
 
-.help-dialog {
+.dialog{
+    display: none;
+    position: fixed;
+    top: 30%;
+    height: auto;
+    overflow: hidden;
+    z-index: 9999;
+    background-color: #ffffff;
+}
+
+.dialog h2 {
+    padding: 10px;
+    background-color: black;
+    margin: 0;
+    color: #ffffff;
+}
+
+.help_dialog {
     height: 600px;
     width: 950px;
 }
 
-.help-dialog .close-dialog {
+.help_dialog img{
+    height: 450px;
+    width: 800px;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+.help_dialog .close_dialog {
     position: absolute;
     right: 10px;
     top: 10px;
@@ -118,7 +115,7 @@ dialog input {
     font-size: 40px;
 }
 
-.help-dialog .next-dialog{
+.help_dialog .next_dialog{
     position: absolute;
     right: 10px;
     bottom: 50px;
@@ -127,7 +124,7 @@ dialog input {
     font-size: 20px;
 }
 
-.help-dialog .prev-dialog{
+.help_dialog .prev_dialog{
     position: absolute;
     left: 10px;
     bottom: 50px;
@@ -136,9 +133,16 @@ dialog input {
     font-size: 20px;
 }
 
-.help-dialog p.number-of-page{
+.help_dialog p.number_of_pages{
     position: absolute;
     bottom: 30px;
     right: 50%;
     font-size: 20px;
+}
+
+#modal_window{
+    display: none;
+    background-color: #000000;
+    opacity: 0.3;
+    z-index: 9000;
 }
