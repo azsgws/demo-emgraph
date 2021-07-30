@@ -292,8 +292,8 @@ $(function(){
             dialog.css({"left": leftPos + "px"});
             dialog.css({"top": topPos + "px"});
             dialog.show();
-            modeal_window.css({"width": $(window).width()});
-            modeal_window.css({"height": $(window).height()});
+            modal_window.css({"width": $(window).width()});
+            modal_window.css({"height": $(window).height()});
             modal_window.show();
         });
         /* ページ遷移処理(next) */
