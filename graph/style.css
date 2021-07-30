@@ -34,14 +34,6 @@ button:active{
     width: 40px;
 }
 
-#help {
-    position: absolute;
-    right: 10px;
-    top: 10px;
-    height: 30px;
-    width: 70px;
-}
-
 .color_labels .generation_param_row{
     width: 140px;
     font-size: 100%;
@@ -133,16 +125,30 @@ button:active{
     font-size: 20px;
 }
 
-.help_dialog p.number_of_pages{
-    position: absolute;
-    bottom: 30px;
-    right: 50%;
-    font-size: 20px;
-}
-
 #modal_window{
     display: none;
     background-color: #000000;
     opacity: 0.3;
     z-index: 9000;
+}
+
+#help_page2 {
+    display: none;
+}
+
+
+#help_page3 {
+    display: none;
+}
+
+#help_btn {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    height: 30px;
+    width: 70px;
+}
+
+#help_page_prev_btn {
+    left: 10px;
 }

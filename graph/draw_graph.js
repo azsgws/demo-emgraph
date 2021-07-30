@@ -283,6 +283,33 @@ $(function(){
             }
         });
 
+        $(document).on("click", "#help_page_next_btn", function(){
+            if (document.getElementById("help_page1").style.display != "none"){
+                document.getElementById("help_page2").style.display = "inline";
+                document.getElementById("help_page_prev_btn").style.display = "inline";
+                document.getElementById("help_page1").style.display = "none";
+            }
+            else {
+                document.getElementById("help_page3").style.display = "inline";
+                document.getElementById("help_page2").style.display = "none";
+                document.getElementById("help_page_next_btn").style.display = "none";
+            }
+        });
+
+        $(document).on("click", "#help_page_prev_btn", function(){
+            if (document.getElementById("help_page3").style.display != "none"){
+                document.getElementById("help_page2").style.display = "inline";
+                document.getElementById("help_page_next_btn").style.display = "inline";
+                document.getElementById("help_page3").style.display = "none";
+            }
+            else {
+                document.getElementById("help_page1").style.display = "inline";
+                document.getElementById("help_page2").style.display = "none";
+                document.getElementById("help_page_prev_btn").style.display = "none";
+            }
+        });
+
+
         /* オープン処理 */
         $(document).on("click", "#help", function(){
             let dialog = $(this).next();
