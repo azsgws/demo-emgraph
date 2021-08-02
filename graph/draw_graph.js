@@ -183,6 +183,7 @@ $(function(){
         $("#search").click(function() {
             // dropdownで選択したノード名、または記述したノード名を取得
             let select_node_name = $("#article_name").val();
+            select_node_name = select_node_name.toUpperCase();
             let select_node = cy.nodes().filter(function(ele){
                 return ele.data("name") == select_node_name;
             });
@@ -202,6 +203,7 @@ $(function(){
         $("#article_name").change(function() {
             // dropdownで選択したノード名、または記述したノード名を取得
             let select_node_name = $("#article_name").val();
+            select_node_name = select_node_name.toUpperCase();
             let select_node = cy.nodes().filter(function(ele){
                 return ele.data("name") == select_node_name;
             });
@@ -283,6 +285,7 @@ $(function(){
             }
         });
 
+        // dialogページの切り替え
         $(document).on("click", "#help_page_next_btn", function(){
             if (document.getElementById("help_page1").style.display != "none"){
                 document.getElementById("help_page2").style.display = "inline";
