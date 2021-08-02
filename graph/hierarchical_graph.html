@@ -15,35 +15,53 @@
         <link rel="stylesheet" type="text/css" href="./style.css"></link>
     </head>
     <body>
-        <div>
-            <input type="text" name="article_name" id="article_name" autocomplete="on"
-                placeholder="&#xf002; Search Article" list="article_list" spellcheck="false"
-                onkeyup="this.value=this.value.toUpperCase()">
-            <datalist id="article_list">
-            </datalist>
-            <input type="button" value="search" id="search">
-            <p style="display:inline;" id="select_article">SELECT: </p>
-            <br>
-            <p style="display:inline;">Highlight: </p>
-            <p style="display:inline;">Ancestor generations</p>
-            <input type="number" name="ancestor_generations" id="ancestor_generations" value="1" min="0" max="100">
-            <p style="display:inline;">Descendant generations</p>
-            <input type="number" name="descendant_generations" id="descendant_generations" value="1" min="0" max="100">
-            <button type="button" value="re-highlight" id="re-highlight">re-highlight</button>
-            <br>
-            <a href="./clustering_graph.html">Clustering graph</a>
-
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" id="help_btn">
-                Help
-            </button>
-            
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+        <form class="p-2">
+            <div class="form-row">
+                <div class="col-sm-3">
+                    <label for="article_name">Article</label>
+                    <div class="input-group">
+                        <input type="text" name="article_name" id="article_name" autocomplete="on"
+                            placeholder="Search" list="article_list" spellcheck="false" class="form-control">
+                        <datalist id="article_list"></datalist>
+                        <div class="input-group-append">
+                            <input class="btn btn-outline-success" type="button" id="search" value="search">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-1 col-sm-2">
+                    <label for="ancestor_generations">Upper Level</label>
+                    <input type="number" name="ancestor_generations" id="ancestor_generations" value="1" min="0" max="100" class="form-control">
+                </div>
+                <div class="col-xl-1 col-sm-2">
+                    <label for="descendant_generations">Lower Level</label>
+                    <input type="number" name="ancestor_generations" id="descendant_generations" value="1" min="0" max="100" class="form-control">
+                </div>
+                <div class="col-md-1 col-sm-1 col-3">
+                    <label for="re-highlight">re-highlight</label>
+                    <button type="button" value="re-highlight" id="re-highlight", class="btn btn-outline-secondary form-control">re-highlight</button>
+                </div>
+                <div class="col-md-1 col-sm-1 col-3">
+                    <label for="reset">reset</label>
+                    <button type="button" value="reset" id="reset", class="btn btn-outline-danger form-control">reset</button>
+                </div>
+                <div class="col-md-1 col-sm-1 col-3">
+                    <label for="help">help</label>
+                    <button type="button" class="btn btn-outline-info form-control" data-toggle="modal" data-target="#help_dialog" id="help_btn">
+                        help
+                    </button>
+                </div>
+                <div class="col-md-1 col-sm-1 col-3">
+                    <label for="clustering_graph">other graph style</label>
+                    <a class="btn btn-link form-control" href="./clustering_graph.html" role="button">Clustering Graph</a>
+                </div>
+            </div>
+        </form>
+        <!-- Modal -->
+        <div class="modal fade" id="help_dialog" tabindex="-1" role="dialog" aria-labelledby="graph_usage" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalCenterTitle">Usage</h5>
+                    <h5 class="modal-title" id="graph_usage">Usage</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -54,14 +72,13 @@
                         <img src="./static/emgraph/images/description-highlight-coloring.png" alt="description-highligh-coloring" class="help_page" id="help_page3">
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary pull-left" id="help_page_prev_btn" style="display: none;">Prev</button>
-                        <button type="button" class="btn btn-primary float-right" id="help_page_next_btn">Next</button>
+                        <button type="button" class="btn btn-primary mr-auto" id="help_page_prev_btn" style="display: none;">Prev</button>
+                        <button type="button" class="btn btn-primary " id="help_page_next_btn">Next</button>
                     </div>
                 </div>
-                </div>
             </div>
-            <button type="button" value="reset" id="reset">reset</button>
         </div>
+        
         <div class="color_index hidden_show" id="highlight_coloring_index">
             <p><b>Highlight Coloring</b></p>
             <table class="color_labels">

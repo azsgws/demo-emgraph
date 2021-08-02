@@ -54,10 +54,6 @@ button:active{
     visibility: hidden;
 }
 
-#reset {
-    position: absolute;
-}
-
 .help_page {
     margin-left: auto;
     margin-right: auto;
@@ -139,16 +135,4 @@ button:active{
 
 #help_page3 {
     display: none;
-}
-
-#help_btn {
-    position: absolute;
-    right: 10px;
-    top: 10px;
-    height: 30px;
-    width: 70px;
-}
-
-#help_page_prev_btn {
-    left: 10px;
 }
