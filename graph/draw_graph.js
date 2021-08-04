@@ -183,6 +183,7 @@ $(function(){
         $("#search").click(function() {
             // dropdownで選択したノード名、または記述したノード名を取得
             let select_node_name = $("#article_name").val();
+            select_node_name = select_node_name.toUpperCase();
             let select_node = cy.nodes().filter(function(ele){
                 return ele.data("name") == select_node_name;
             });
@@ -202,6 +203,7 @@ $(function(){
         $("#article_name").change(function() {
             // dropdownで選択したノード名、または記述したノード名を取得
             let select_node_name = $("#article_name").val();
+            select_node_name = select_node_name.toUpperCase();
             let select_node = cy.nodes().filter(function(ele){
                 return ele.data("name") == select_node_name;
             });
@@ -280,6 +282,41 @@ $(function(){
                 });
                 reset_elements_style(cy);
                 highlight_select_elements(cy, selected_node, ancestor_generations, descendant_generations);
+            }
+        });
+
+        // dialogページの切り替え
+        $(document).on("click", "#help_page_next_btn", function(){
+            // page1を開いている場合
+            if (document.getElementById("help_page1").style.display != "none"){
+                document.getElementById("help_page1").style.display = "none";
+                document.getElementById("help_page2").style.display = "inline";
+                document.getElementById("help_page_prev_btn").style.display = "inline";
+                document.getElementById("graph_usage").innerText = "Usage (2/3)";
+            }
+            // page2を開いている場合
+            else {
+                document.getElementById("help_page2").style.display = "none";
+                document.getElementById("help_page3").style.display = "inline";
+                document.getElementById("help_page_next_btn").style.display = "none";
+                document.getElementById("graph_usage").innerText = "Usage (3/3)";
+            }
+        });
+
+        $(document).on("click", "#help_page_prev_btn", function(){
+            // page3を開いている場合
+            if (document.getElementById("help_page3").style.display != "none"){
+                document.getElementById("help_page3").style.display = "none";
+                document.getElementById("help_page2").style.display = "inline";
+                document.getElementById("help_page_next_btn").style.display = "inline";
+                document.getElementById("graph_usage").innerText = "Usage (2/3)";
+            }
+            // page2を開いている場合
+            else {
+                document.getElementById("help_page2").style.display = "none";
+                document.getElementById("help_page1").style.display = "inline";
+                document.getElementById("help_page_prev_btn").style.display = "none";
+                document.getElementById("graph_usage").innerText = "Usage (1/3)";
             }
         });
 
